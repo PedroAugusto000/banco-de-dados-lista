@@ -37,3 +37,54 @@ VALUES
 (7, 2, 2, 13.50, 10, 4),
 (7, 3, 3, 15.00, 10, 4),
 (7, 4, 5, 30.00, 10, 1);
+
+/* Letra a */
+SELECT ID_NF, ID_ITEM, COD_PROD, VALOR_UNIT
+FROM lojinha.produtos
+WHERE DESCONTO IS NULL;
+
+/* Letra b */
+SELECT 
+    ID_NF, 
+    ID_ITEM, 
+    COD_PROD, 
+    VALOR_UNIT,
+    (VALOR_UNIT - (VALOR_UNIT * (DESCONTO / 100))) AS VALOR_VENDIDO
+FROM lojinha.produtos
+WHERE DESCONTO IS NOT NULL;
+
+/* Letra c */
+
+UPDATE lojinha.produtos
+SET DESCONTO = 0
+WHERE DESCONTO IS NULL;
+
+/* Letra d */
+
+SELECT 
+    ID_NF, 
+    ID_ITEM, 
+    COD_PROD, 
+    VALOR_UNIT, 
+    QUANTIDADE * VALOR_UNIT AS VALOR_TOTAL,
+    DESCONTO,
+    VALOR_UNIT - (VALOR_UNIT * (DESCONTO / 100)) AS VALOR_VENDIDO
+FROM 
+    lojinha.produtos;
+
+/* Letra e */
+
+SELECT 
+    ID_NF, 
+    SUM(QUANTIDADE * VALOR_UNIT) AS VALOR_TOTAL
+FROM 
+    lojinha.produtos
+GROUP BY 
+    ID_NF
+ORDER BY 
+    VALOR_TOTAL DESC;
+
+
+/* Letra f */
+
+/* Letra g*/
