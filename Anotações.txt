@@ -1,4 +1,4 @@
-Crie no banco de dados as tabelas abaixo:
+Crie no banco de dados SQL as tabelas abaixo:
 id_nf - 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 6, 6, 7, 7, 7, 7;
 
 id_item: 1, 2, 3, 4, 5, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 1, 2, 1, 2, 3, 4;
@@ -10,3 +10,71 @@ valor_unit: 25, 13.50, 15, 10, 30, 15, 10, 30, 25, 10, 30, 13.50, 30, 10, 25, 13
 quantidade: 10, 3, 2, 1, 1, 4, 5, 7, 5, 4, 5, 7, 10, 12, 13, 15, 3, 6, 22, 25, 10, 10, 10, 10
 
 desconto(%): 5, null, null, null, null, null, null, null, null, null, null, null, 15, 5, 5, 5, null, null, 15, 20, 3, 4, 4, 1
+
+----------------------------------------------------------------------------------------------
+Funções:
+COUNT - Contador
+SUM - Somador
+MIN - Minimo
+MAX - Maximo
+
+Cria uma base de dados "Universidade" com as tableas a seguir:
+Alunos
+	Matricula (Primary Key)
+	Nome
+	Endreco
+	Cidade
+DIsciplinas
+	Cod_disc (Primary Key)
+	Nome
+	Carga
+	Horarios
+Professores
+	Cod_prof (Primary Key)
+	Nome
+	Endereço
+	Cidade
+Turma
+	Cod_disc (Foreign Key de disciplinas)
+	Cod_turma (Primary Key)
+	Cod_prof (Foreign Key de professores)
+	Ano (Primary Key?)
+Histórico
+	Matricula (Foreign de alunos)
+	Cod_disc
+	Cod_turma
+	Cod_prof
+	Ano
+	Frequencia
+	Nota
+	COD_DISC, COD_TURMA, COD_PROF, ANO referencia Turma
+
+Insira os seguintes registros:
+ALUNOS:
+(2015010101, JOSE DE ALENCAR, RUA DAS ALMAS, NATAL)
+(2015010102, JOÃO JOSÉ, AVENIDA RUY CARNEIRO, JOÃO PESSOA)
+(2015010103, MARIA JOAQUINA, RUA CARROSSEL, RECIFE)
+(2015010104, MARIA DAS DORES, RUA DAS LADEIRAS, FORTALEZA)
+(2015010105, JOSUÉ CLAUDINO DOS SANTOS, CENTRO, NATAL)
+(2015010106, JOSUÉLISSON CLAUDINO DOS SANTOS, CENTRO, NATAL)
+
+DISCIPLINAS:
+(BD, BANCO DE DADOS, 100)
+(POO, PROGRAMAÇÃO COM ACESSO A BANCO DE DADOS, 100)
+(WEB, AUTORIA WEB, 50)
+(ENG, ENGENHARIA DE SOFTWARE, 80)
+
+PROFESSORES:
+(212131, NICKERSON FERREIRA, RUA MANAÍRA, JOÃO PESSOA)
+(122135, ADORILSON BEZERRA, AVENIDA SALGADO FILHO, NATAL)
+(192011, DIEGO OLIVEIRA, AVENIDA ROBERTO FREIRE, NATAL)
+
+TURMA:
+(BD, 1, 212131, 2015, 11H-12H)
+(BD, 2, 212131, 2015, 13H-14H)
+(POO, 1, 192011, 2015, 08H-09H)
+(WEB, 1, 192011, 2015, 07H-08H)
+(ENG, 1, 122135, 2015, 10H-11H)
+
+HISTÓRICO:
+INSIRA VALORES PARA TODOS OS ALUNOS EM TODAS AS DISCIPLINAS
