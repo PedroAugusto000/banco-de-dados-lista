@@ -84,7 +84,89 @@ GROUP BY
 ORDER BY 
     VALOR_TOTAL DESC;
 
-
 /* Letra f */
 
-/* Letra g*/
+SELECT 
+    ID_NF, 
+    SUM(VALOR_UNIT - (VALOR_UNIT * (DESCONTO / 100))) AS VALOR_VENDIDO
+FROM 
+    lojinha.produtos
+GROUP BY 
+    ID_NF
+ORDER BY 
+    VALOR_VENDIDO DESC;
+
+/* Letra g */
+
+SELECT 
+    COD_PROD, 
+    SUM(QUANTIDADE) AS QUANTIDADE
+FROM 
+    lojinha.produtos
+GROUP BY 
+    COD_PROD
+ORDER BY 
+    QUANTIDADE DESC
+LIMIT 1;
+
+/* Letra h */
+ 
+ SELECT 
+    ID_NF, 
+    COD_PROD, 
+    SUM(QUANTIDADE) AS QUANTIDADE
+FROM 
+    lojinha.produtos
+GROUP BY 
+    ID_NF, COD_PROD
+HAVING 
+    SUM(QUANTIDADE) > 10;
+
+/* Letra i */
+
+SELECT 
+    ID_NF, 
+    SUM(QUANTIDADE * VALOR_UNIT) AS VALOR_TOT
+FROM 
+    lojinha.produtos
+GROUP BY 
+    ID_NF
+HAVING 
+    VALOR_TOT > 500
+ORDER BY 
+    VALOR_TOT DESC;
+
+/* Letra j */
+
+SELECT 
+    COD_PROD, 
+    AVG(DESCONTO) AS MEDIA
+FROM 
+    lojinha.produtos
+GROUP BY 
+    COD_PROD;
+
+/* Letra k */
+
+SELECT 
+    COD_PROD, 
+    MIN(DESCONTO) AS MENOR,
+    MAX(DESCONTO) AS MAIOR,
+    AVG(DESCONTO) AS MEDIA
+FROM 
+    lojinha.produtos
+GROUP BY 
+    COD_PROD;
+
+
+/* Letra l */
+
+SELECT 
+    ID_NF, 
+    COUNT(*) AS QTD_ITENS
+FROM 
+    lojinha.produtos
+GROUP BY 
+    ID_NF
+HAVING 
+    COUNT(*) > 3;
